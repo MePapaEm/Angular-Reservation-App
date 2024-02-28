@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col">
+        <h2>Welcome to Reservations</h2>
+        
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Party Name</th>
+                <th>Party Size</th>
+                <th>Fullfilled</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>                
+                <tr *ngFor='let reservation of reservationEntries; let i = index'>
+                    <td>{{reservation.getFormattedDate()}}</td>
+                    <td>{{reservation.getFormattedTime()}}</td>
+                    <td>{{reservation.partyName}}</td>
+                    <td>{{reservation.partySize}}</td>
+                    <td><input [(ngModel)]="reservation.fullfilled" type="checkbox"></td>
+                    <td>                        
+                        <button class="btn btn-primary" (click)="onEdit(reservation.id, i)">Edit</button>   
+                        <button class="btn btn-danger" (click)="onDelete(reservation.id, i)">Cancel</button>
+                    </td>
+                </tr>
+            </tbody>        
+        </table>
+
+    </div>
+</div>

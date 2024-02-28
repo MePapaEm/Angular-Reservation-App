@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col">
+        <form (ngSubmit)="onSubmit()" [formGroup]='reservationForm'>
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input class="form-control" formControlName="date" type="date">
+                <label for="Time">Time</label>
+                <input class="form-control" formControlName="time" type="time" min="09:00" max="18:00" [(ngModel)]="time">
+                <label for="partyName">Party Name</label>
+                <input class="form-control" formControlName="partyName" type="text">
+                <label for="partySize">Party Size</label>
+                <input class="form-control" formControlName="partySize" type="number" min="1">
+                <label for="fullfilled">Fullfilled</label>                
+                <input class="form-check-input" formControlName="fullfilled" type="checkbox">                
+            </div>
+            <button [disabled]="!reservationForm.valid" type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</div>
